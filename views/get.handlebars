@@ -1,0 +1,26 @@
+ <h1>Gästbok</h1>
+  <form action="/add_posts" method="post">
+    Name:<br />
+    <input type="text" name="name" required />
+    <br />
+    Email:<br />
+    <input type="email" name="email" required />
+    <br />
+    Comment:<br />
+    <input type="text" name="comment" required />
+    <br />
+    <input type="submit" value="Submit" />
+  </form>
+
+<h1>Posts</h1>
+  {{#each result}}
+    <div>
+  {{!-- inne i loopen använder man "this" för att komma åt det aktuella elementet i arrayen --}}
+      <h2>{{this.name}}</h2> 
+      <h2>{{this.email}}</h2> 
+      <div>{{this.comment}}</div>
+    </div>
+  {{!-- else körs om posts är tom, alltså om användaren inte postat något --}}
+  {{else}}
+    Den här användaren har inte postat något.
+  {{/each}}
